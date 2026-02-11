@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/esell_product?createDatabaseIfNotExist=true
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # 🏗️ This automatically creates/updates tables based on our Java code
+    show-sql: true # 📝 This lets us see the SQL commands in the console
+
+server:
+  port: 8081 # 🔌 Different port than Eureka
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # 📍 The address of our Discovery Server

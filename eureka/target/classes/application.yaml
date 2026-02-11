@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eureka
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false # ❌ Don't register with yourself
+    fetch-registry: false # ❌ Don't try to download a list of services from yourself
