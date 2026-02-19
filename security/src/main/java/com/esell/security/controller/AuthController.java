@@ -34,7 +34,8 @@ public class AuthController {
     @PostMapping("/token")
     public String getToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(
+                        authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated())
             return authService.generateToken(authRequest.getUsername());
         throw new RuntimeException("invalid access");

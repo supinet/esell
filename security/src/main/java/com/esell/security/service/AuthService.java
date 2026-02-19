@@ -1,5 +1,10 @@
 package com.esell.security.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,7 +31,8 @@ public class AuthService {
     }
 
     public String generateToken(String userName) {
-        return jwtService.generateToken(userName);
+        List<String> roles = new ArrayList<>();
+        return jwtService.generateToken(userName, roles);
     }
 
     public void validateToken(String token) {

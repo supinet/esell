@@ -12,6 +12,15 @@ spring:
           predicates:
             - Path=/api/products/**
             - Path=/api/products
+          filters:
+            - AuthenticationFilter
+
+        - id: security-service
+          uri: lb://security-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - AuthenticationFilter
 
 eureka:
   client:
